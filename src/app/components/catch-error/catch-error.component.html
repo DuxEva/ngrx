@@ -1,0 +1,4 @@
+<button (click)="makeRequest()">Make HTTP Request</button>
+<div *ngIf="loading">Loading...</div>
+<div *ngIf="result">{{ result }}</div>
+<div *ngIf="error">{{ error }}</div>
