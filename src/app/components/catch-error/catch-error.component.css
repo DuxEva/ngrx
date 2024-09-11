@@ -1,33 +1,13 @@
 /* Ensure the component takes up the full height of the screen */
-:host {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh; /* Full height of the viewport */
-  background: linear-gradient(
-    135deg,
-    #4facfe 0%,
-    #00f2fe 100%
-  ); /* Gradient background */
-  font-family: Arial, sans-serif;
-}
 
 /* Style the container holding the content */
-.content-container {
-  text-align: center;
-  background: rgba(255, 255, 255, 0.85); /* Semi-transparent white background */
-  padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  max-width: 400px;
-  width: 100%;
-}
 
 /* Loading indicator styling */
 .loading {
   font-size: 1.5rem;
   color: #007bff;
   font-weight: bold;
+  margin-top: 3rem;
 }
 
 /* Result text styling */

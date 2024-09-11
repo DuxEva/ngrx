@@ -1,0 +1,16 @@
+<div *ngIf="product">
+  <div class="h-48 w-full rounded-2xl">
+    <img
+      [src]="product.image"
+      alt="{{ product.description }}"
+      class="w-full h-full object-cover rounded-2xl -z-10"
+    />
+  </div>
+  <div class="mt-1 sm:mt-2">
+    <p class="font-light text-lg text-rose-400 mb-1">{{ product.category }}</p>
+    <h3 class="font-semibold text-rose-900 mb-1">
+      {{ product.description.slice(0, 50) }}...
+    </h3>
+    <p class="text-lg text-red-1">${{ product.price | number : "1.2-2" }}</p>
+  </div>
+</div>

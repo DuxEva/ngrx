@@ -1,8 +1,17 @@
-<div class="content-container">
-  <button (click)="makeRequest()">Make HTTP Request</button>
-  <div *ngIf="loading" class="loading">Loading...</div>
-  <div *ngIf="!error">
-    <div *ngIf="result" class="result">{{ result }}</div>
+<div class="w-screen relative">
+  <div class="fixed top-0 left-0 p-2 z-10 bg-white w-full">
+    <button class="m-5" (click)="makeRequest()">Make HTTP Request</button>
   </div>
-  <div *ngIf="error" class="error">{{ error }}</div>
+  <div class="mt-40">
+    <div *ngIf="loading" class="loading">Loading...</div>
+    <div *ngIf="!error" class="w-full">
+      <div *ngIf="result" class="grid grid-cols-3 gap-7 w-full border">
+        <app-product-card
+          *ngFor="let item of result"
+          [product]="item"
+        ></app-product-card>
+      </div>
+    </div>
+    <div *ngIf="error" class="error">{{ error }}</div>
+  </div>
 </div>
