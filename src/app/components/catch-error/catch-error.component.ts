@@ -21,11 +21,14 @@ export class CatchErrorComponent {
       tap(() => console.log('Request started')),
       delay(1000),
       tap(() => {
-        if (Math.random() > 0.5) {
+        const random = Math.random();
+        console.log('Random value:', random);
+        if (random > 0.5) {
           throw new Error('Request failed');
         }
+        return random;
       }),
-      retry(3),
+      retry(2),
       catchError((error) => {
         console.error('Request failed:', error);
         this.error = 'Retries exhausted';
@@ -37,7 +40,6 @@ export class CatchErrorComponent {
     httpRequest$.subscribe({
       next: (response) => {
         this.result = 'Request successful';
-        console.log('Request successful:', response);
         this.loading = false;
       },
       error: (err) => {

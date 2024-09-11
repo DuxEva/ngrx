@@ -1,6 +1,8 @@
 <div class="content-container">
   <button (click)="makeRequest()">Make HTTP Request</button>
   <div *ngIf="loading" class="loading">Loading...</div>
-  <div *ngIf="result" class="result">{{ result }}</div>
+  <div *ngIf="!error">
+    <div *ngIf="result" class="result">{{ result }}</div>
+  </div>
   <div *ngIf="error" class="error">{{ error }}</div>
 </div>
