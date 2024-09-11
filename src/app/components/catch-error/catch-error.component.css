@@ -1,0 +1,57 @@
+/* Ensure the component takes up the full height of the screen */
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full height of the viewport */
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); /* Gradient background */
+  font-family: Arial, sans-serif;
+}
+
+/* Style the container holding the content */
+.content-container {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.85); /* Semi-transparent white background */
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
+}
+
+/* Loading indicator styling */
+.loading {
+  font-size: 1.5rem;
+  color: #007bff;
+  font-weight: bold;
+}
+
+/* Result text styling */
+.result {
+  font-size: 1.5rem;
+  color: #28a745;
+  font-weight: bold;
+}
+
+/* Error text styling */
+.error {
+  font-size: 1.5rem;
+  color: #dc3545;
+  font-weight: bold;
+}
+
+/* Button styling */
+button {
+  background-color: #007bff;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}

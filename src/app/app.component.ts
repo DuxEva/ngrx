@@ -12,48 +12,48 @@ export class AppComponent {
   intervalObservable = interval(1000).pipe(take(5));
 
   constructor() {
-    this.numberObservable.subscribe({
-      next: (value: number) => console.log(`Emitted value: ${value}`),
-      complete: () => console.log('Observable completed!'),
-    });
+    // this.numberObservable.subscribe({
+    //   next: (value: number) => console.log(`Emitted value: ${value}`),
+    //   complete: () => console.log('Observable completed!'),
+    // });
 
-    const colorObservable = from(this.colors);
+    // const colorObservable = from(this.colors);
 
-    colorObservable.subscribe({
-      next: (color) => console.log(`Color: ${color}`),
-      complete: () => console.log('Color observable completed!'),
-    });
+    // colorObservable.subscribe({
+    //   next: (color) => console.log(`Color: ${color}`),
+    //   complete: () => console.log('Color observable completed!'),
+    // });
 
-    if (this.intervalObservable) {
-      this.intervalObservable.subscribe({
-        next: (value: any) =>
-          console.log(
-            `Value: ${value}, Timestamp: ${new Date().toLocaleTimeString()}`
-          ),
-        complete: () => console.log('Interval observable completed!'),
-      });
-    }
+    // if (this.intervalObservable) {
+    //   this.intervalObservable.subscribe({
+    //     next: (value: any) =>
+    //       console.log(
+    //         `Value: ${value}, Timestamp: ${new Date().toLocaleTimeString()}`
+    //       ),
+    //     complete: () => console.log('Interval observable completed!'),
+    //   });
+    // }
 
-    const combinedObservable = concat(this.numberObservable, colorObservable);
+    // const combinedObservable = concat(this.numberObservable, colorObservable);
 
-    combinedObservable.subscribe({
-      next: (value) => console.log(`Combined value: ${value}`),
-      complete: () => console.log('Combined observable completed!'),
-    });
+    // combinedObservable.subscribe({
+    //   next: (value) => console.log(`Combined value: ${value}`),
+    //   complete: () => console.log('Combined observable completed!'),
+    // });
 
-    const errorObservable = new Observable<number>((subscriber) => {
-      subscriber.next(1);
-      subscriber.next(2);
-      subscriber.next(3);
-      subscriber.error('Something went wrong!');
-      subscriber.next(4);
-    });
+    // const errorObservable = new Observable<number>((subscriber) => {
+    //   subscriber.next(1);
+    //   subscriber.next(2);
+    //   subscriber.next(3);
+    //   subscriber.error('Something went wrong!');
+    //   subscriber.next(4);
+    // });
 
-    errorObservable.subscribe({
-      next: (value) => console.log(`Value: ${value}`),
-      error: (err) => console.error(`Error occurred: ${err}`),
-      complete: () =>
-        console.log('This will not be logged since an error occurred.'),
-    });
+    // errorObservable.subscribe({
+    //   next: (value) => console.log(`Value: ${value}`),
+    //   error: (err) => console.error(`Error occurred: ${err}`),
+    //   complete: () =>
+    //     console.log('This will not be logged since an error occurred.'),
+    // });
   }
 }

@@ -25,13 +25,10 @@ export class CatchErrorComponent {
           throw new Error('Request failed');
         }
       }),
-      catchError((error) => {
-        console.error('Request failed:', error);
-        return throwError(() => error);
-      }),
       retry(3),
       catchError((error) => {
-        console.log('Retries exhausted');
+        console.error('Request failed:', error);
+        this.error = 'Retries exhausted';
         return of('Fallback response');
       }),
       tap((response) => console.log('Final response:', response))
@@ -39,7 +36,8 @@ export class CatchErrorComponent {
 
     httpRequest$.subscribe({
       next: (response) => {
-        this.result = response as string;
+        this.result = 'Request successful';
+        console.log('Request successful:', response);
         this.loading = false;
       },
       error: (err) => {
